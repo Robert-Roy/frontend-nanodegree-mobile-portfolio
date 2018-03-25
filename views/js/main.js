@@ -541,6 +541,8 @@ document.addEventListener('DOMContentLoaded', function () {
         elem.style.top = (Math.floor(i / cols) * s) + 'px';
         document.querySelector("#movingPizzas1").appendChild(elem);
     }
-    //Automatically runs already
-    //updatePositions(); 
 });
+// if browser does not register a scroll event on pageload, manually fire updatePositions
+if(frame===0){
+    updatePositions();
+}
