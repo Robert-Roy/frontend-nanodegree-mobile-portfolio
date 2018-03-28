@@ -1,3 +1,5 @@
+Cache-Control: max-age=3600, public
+
 html {
   font-size: 100%;
   overflow-y: scroll;

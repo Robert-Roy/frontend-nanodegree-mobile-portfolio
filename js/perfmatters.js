@@ -1,4 +1,6 @@
-// Measuring the Critical Rendering Path with Navigation Timing
+Cache-Control: max-age=3600, public
+
+// // Measuring the Critical Rendering Path with Navigation Timing
 // https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp
 
 function logCRP() {
