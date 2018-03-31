@@ -515,9 +515,13 @@ function updatePositions() {
     // document.body.scrollTop is no longer supported in Chrome.
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     var newLeft = [];
+    var phases = [];
+    for (var c = 0; c < 5; c++){
+        phases.push(Math.sin((scrollTop / 1250) + (c % 5)));
+    }
+    console.log(phases);
     for (var a = 0; a < items.length; a++) {
-        var phase = Math.sin((scrollTop / 1250) + (a % 5));
-        newLeft.push(items[a].basicLeft + 100 * phase + 'px');
+        newLeft.push(items[a].basicLeft + 100 * phases[(a % 5)] + 'px');
     }
     for (var i = 0; i < newLeft.length; i++) {
         items[i].style.left = newLeft[i];
@@ -538,16 +542,19 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-    var cols = 8;
-    var s = 256;
-    for (var i = 0; i < 200; i++) {
+    // Generates a number of pizzas on screen based on screen dimensions.
+    var spaceBetweenPizzas = 256;
+    var cols = Math.ceil(screen.width / spaceBetweenPizzas);
+    var rows = Math.ceil(screen.height / spaceBetweenPizzas);
+    var pizzaCount = cols * rows;
+    for (var i = 0; i < pizzaCount; i++) {
         var elem = document.createElement('img');
         elem.className = 'mover';
         elem.src = "images/pizza.png";
         elem.style.height = "100px";
         elem.style.width = "73.333px";
-        elem.basicLeft = (i % cols) * s;
-        elem.style.top = (Math.floor(i / cols) * s) + 'px';
+        elem.basicLeft = (i % cols) * spaceBetweenPizzas;
+        elem.style.top = (Math.floor(i / cols) * spaceBetweenPizzas) + 'px';
         document.querySelector("#movingPizzas1").appendChild(elem);
     }
     updatePositions();
