@@ -18,7 +18,7 @@ Numerous javascript improvements such as:
 
 Original:
 
-`
+```
 var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
     // document.body.scrollTop is no longer supported in Chrome.
@@ -26,11 +26,11 @@ var items = document.querySelectorAll('.mover');
     var phase = Math.sin((scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
 }
-`
+```
 
 Revised:
 
-`
+```
 var items = document.querySelectorAll('.mover');
     // document.body.scrollTop is no longer supported in Chrome.
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -46,11 +46,11 @@ var items = document.querySelectorAll('.mover');
     for (var i = 0; i < newLeft.length; i++) {
         items[i].style.left = newLeft[i];
     }
-`
+```
 
 Original:
 
-`
+```
 var resizePizzas = function(size) {
   changeSliderLabel(size);
 
@@ -91,11 +91,11 @@ var resizePizzas = function(size) {
 
   changePizzaSizes(size);
 };
-`
+```
 
 Revised:
 
-`
+```
 var resizePizzas = function(size) {
     changeSliderLabel(size);
 
@@ -126,4 +126,4 @@ var resizePizzas = function(size) {
 
     changePizzaSizes(size);
 };
-`
+```
