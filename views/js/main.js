@@ -458,7 +458,7 @@ var resizePizzas = function(size) {
 
     // Iterates through pizza elements on the page and changes their widths
     function changePizzaSizes(size) {
-        var pizzas = document.getElementsByClassName(".randomPizzaContainer");
+        var pizzas = document.getElementsByClassName("randomPizzaContainer");
         var newWidth = determinePizzaWidth(size);
         console.log(newWidth);
         for (var i = 0; i < pizzas.length; i++) {
@@ -544,7 +544,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
     // Generates a number of pizzas on screen based on screen dimensions.
     var spaceBetweenPizzas = 256;
-    var cols = Math.ceil(screen.width / spaceBetweenPizzas);
+    var cols = 8;
     var rows = Math.ceil(screen.height / spaceBetweenPizzas);
     var pizzaCount = cols * rows;
     for (var i = 0; i < pizzaCount; i++) {
