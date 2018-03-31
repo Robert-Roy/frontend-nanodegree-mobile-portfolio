@@ -460,7 +460,6 @@ var resizePizzas = function(size) {
     function changePizzaSizes(size) {
         var pizzas = document.getElementsByClassName("randomPizzaContainer");
         var newWidth = determinePizzaWidth(size);
-        console.log(newWidth);
         for (var i = 0; i < pizzas.length; i++) {
             pizzas[i].style.width = newWidth;
         }
@@ -519,7 +518,6 @@ function updatePositions() {
     for (var c = 0; c < 5; c++){
         phases.push(Math.sin((scrollTop / 1250) + (c % 5)));
     }
-    console.log(phases);
     for (var a = 0; a < items.length; a++) {
         newLeft.push(items[a].basicLeft + 100 * phases[(a % 5)] + 'px');
     }
