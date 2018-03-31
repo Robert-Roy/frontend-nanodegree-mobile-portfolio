@@ -17,16 +17,21 @@ I moved CSS to in-line to prevent blocking.
 Numerous javascript improvements such as:
 
 Original:
-`  var items = document.querySelectorAll('.mover');
+
+`
+var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
     // document.body.scrollTop is no longer supported in Chrome.
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     var phase = Math.sin((scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-}`
+}
+`
 
 Revised:
-`var items = document.querySelectorAll('.mover');
+
+`
+var items = document.querySelectorAll('.mover');
     // document.body.scrollTop is no longer supported in Chrome.
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     var newLeft = [];
@@ -40,10 +45,13 @@ Revised:
     }
     for (var i = 0; i < newLeft.length; i++) {
         items[i].style.left = newLeft[i];
-    }`
+    }
+`
 
 Original:
-`var resizePizzas = function(size) {
+
+`
+var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changes the value for the size of the pizza above the slider
@@ -107,10 +115,13 @@ Original:
   window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
   var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
   console.log("Time to resize pizzas: " + timeToResize[timeToResize.length-1].duration + "ms");
-};`
+};
+`
 
 Revised:
-`var resizePizzas = function(size) {
+
+`
+var resizePizzas = function(size) {
     window.performance.mark("mark_start_resize"); // User Timing API function
 
     // Changes the value for the size of the pizza above the slider
@@ -164,4 +175,5 @@ Revised:
     window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
     var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
     console.log("Time to resize pizzas: " + timeToResize[timeToResize.length - 1].duration + "ms");
-};`
+};
+`
