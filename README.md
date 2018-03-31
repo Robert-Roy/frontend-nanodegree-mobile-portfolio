@@ -52,25 +52,6 @@ Original:
 
 `
 var resizePizzas = function(size) {
-  window.performance.mark("mark_start_resize");   // User Timing API function
-
-  // Changes the value for the size of the pizza above the slider
-  function changeSliderLabel(size) {
-    switch(size) {
-      case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
-        return;
-      case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
-        return;
-      case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
-        return;
-      default:
-        console.log("bug in changeSliderLabel");
-    }
-  }
-
   changeSliderLabel(size);
 
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
@@ -109,12 +90,6 @@ var resizePizzas = function(size) {
   }
 
   changePizzaSizes(size);
-
-  // User Timing API is awesome
-  window.performance.mark("mark_end_resize");
-  window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
-  var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
-  console.log("Time to resize pizzas: " + timeToResize[timeToResize.length-1].duration + "ms");
 };
 `
 
@@ -122,25 +97,6 @@ Revised:
 
 `
 var resizePizzas = function(size) {
-    window.performance.mark("mark_start_resize"); // User Timing API function
-
-    // Changes the value for the size of the pizza above the slider
-    function changeSliderLabel(size) {
-        switch (size) {
-            case "1":
-                document.querySelector("#pizzaSize").innerHTML = "Small";
-                return;
-            case "2":
-                document.querySelector("#pizzaSize").innerHTML = "Medium";
-                return;
-            case "3":
-                document.querySelector("#pizzaSize").innerHTML = "Large";
-                return;
-            default:
-                console.log("bug in changeSliderLabel");
-        }
-    }
-
     changeSliderLabel(size);
 
     // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
@@ -169,11 +125,5 @@ var resizePizzas = function(size) {
     }
 
     changePizzaSizes(size);
-
-    // User Timing API is awesome
-    window.performance.mark("mark_end_resize");
-    window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
-    var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
-    console.log("Time to resize pizzas: " + timeToResize[timeToResize.length - 1].duration + "ms");
 };
 `
